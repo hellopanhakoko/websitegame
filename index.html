@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<h1>Welcome {{ session.username }}</h1>
+<p>Balance: ${{ balance }}</p>
+<a href="{{ url_for('deposit') }}">Deposit</a><br>
+<a href="{{ url_for('game') }}">Game Shop</a><br>
+<a href="{{ url_for('admin') }}">Admin Panel</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<h1>Admin Panel</h1>
+
+<h2>Users</h2>
+<table border="1">
+<tr><th>ID</th><th>Username</th><th>Balance</th><th>Reseller</th></tr>
+{% for user in users %}
+<tr>
+    <td>{{ user[0] }}</td>
+    <td>{{ user[1] }}</td>
+    <td>{{ user[2] }}</td>
+    <td>{{ 'Yes' if user[3] else 'No' }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h2>Items</h2>
+<table border="1">
+<tr><th>Item ID</th><th>Game</th><th>Normal Price</th><th>Reseller Price</th></tr>
+{% for item in items %}
+<tr>
+    <td>{{ item[0] }}</td>
+    <td>{{ item[1] }}</td>
+    <td>{{ item[2] }}</td>
+    <td>{{ item[3] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="{{ url_for('home') }}">Back</a>
+</body>
+</html>

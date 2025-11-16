@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>Game Shop</h1>
+
+    <!-- Mobile Legends Section -->
+    <h2>Mobile Legends</h2>
+    <ul>
+        {% for item_id, price in ml_items.items() %}
+            <li>
+                {{ item_id }} -
+                ${{ price.reseller if reseller else price.normal }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Free Fire Section -->
+    <h2>Free Fire</h2>
+    <ul>
+        {% for item_id, price in ff_items.items() %}
+            <li>
+                {{ item_id }} -
+                ${{ price.reseller if reseller else price.normal }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('home') }}">Back</a>
+
+</body>
+</html>
+
